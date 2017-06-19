@@ -1,12 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { WorldmapComponent } from './worldmap/worldmap.component';
+import { VideolistComponent } from './videolist/videolist.component';
+
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpModule],
       declarations: [
-        AppComponent
+        AppComponent, WorldmapComponent, VideolistComponent,
       ],
     }).compileComponents();
   }));
