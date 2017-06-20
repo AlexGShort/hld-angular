@@ -16,6 +16,7 @@ import { FuturePartnersComponent } from './future-partners/future-partners.compo
 import { MainMenuComponent } from './main-menu/main-menu.component';
 import { HomeComponent } from './home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
