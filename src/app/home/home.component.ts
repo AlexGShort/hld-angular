@@ -11,7 +11,10 @@ export class HomeComponent implements OnInit {
   constructor(private siteDataService:SiteDataService) { }
 
   ngOnInit() {
+      let data;
       this.byline = this.siteDataService.byline;
+      this.siteDataService.getSiteData().then(data => data = data);
+      console.log("data:", data);
   }
 
 }

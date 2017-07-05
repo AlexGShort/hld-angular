@@ -1,8 +1,18 @@
 // Get dependencies
 const express = require('express');
 const path = require('path');
+const httpProxy = require('http-proxy');
+const proxy = httpProxy.createProxyServer();
+
+const mongoose = require('mongoose');
+require('./server/config/mongoose.js');
+
+
+
 const http = require('http');
 const bodyParser = require('body-parser');
+
+
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -16,8 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
 // Set our api routes
-app.use('api', api);
+app.use('/api', api);
+
+// import routes
+require('./server/config/routes.js')(app);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
